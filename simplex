@@ -1,7 +1,8 @@
 //simplex algorithm takes a matrix (initial tableau) and the basic variable indices (as a vector of integers) as arguments.
 //returns tableau after one pass and updated basic variable indices.
-//used with 'over' to find optimal solution
-//eg. (simplex/)[m;3 4]
+//optsim applies simplex until convergence 
+//eg. simplex[m;3 4] - state after one pass 
+//eg. optsim[m;3 4] - state after final pass
 
 simplex:{[m;bv]
          pci:first where l=min l:last m;                                                        //pivot column idx
@@ -14,9 +15,10 @@ simplex:{[m;bv]
          (m:@[m;npri;:;npr];@[bv;pri;:;pci])                                                    //return m,bv
    }
 
+optsim:{({simplex . x}/) simplex[x;y]}
    
 //summarise the results of the final tableau
-//eg. summarysim[`x`y`r`s] (simplex/)[m;3 4]
+//eg. summarysim[`x`y`z`r`s] optsim[m;3 4]
 
 summarysim:{[v;x]                                                                               //arg1:variable symbols,arg2:result of simplex algo
          ((enlist[`optimal_solution]!enlist last last first x),

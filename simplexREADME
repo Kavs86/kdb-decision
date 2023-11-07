@@ -6,4 +6,4 @@
 
    m:0N 6# 2 2 0 1 0 5 5 3 4 0 1 15 -10 -12 -8 0 0 0;
    summarysim[`x`y`z`r`s] optsim[m;3 4]
-   This should leave the dictionary `optimal_solution`y`z!(45 2.5 1.875)
+   This should return the dictionary `optimal_solution`y`z!(45 2.5 1.875)

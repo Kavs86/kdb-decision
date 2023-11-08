@@ -1,0 +1,6 @@
+Various functions used to generate matrices and find minimum paths, minimum spanning trees,
+inspect routes and networks and help with finding optimal solutions to network problems.
+
+genm - generates a distance matrix from a vector argument (the razed top right of the desired matrix)
+genm1 - generates a distance matrix from a semi-colon separated single argument (the top right of the desired matrix)
+edistm - generates a distance matrix from a set of coordinates (this will be the euclidean distance between each coordinate)

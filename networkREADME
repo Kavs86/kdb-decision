@@ -4,3 +4,8 @@ inspect routes and networks and help with finding optimal solutions to network p
 genm - generates a distance matrix from a vector argument (the razed top right of the desired matrix)
 genm1 - generates a distance matrix from a semi-colon separated single argument (the top right of the desired matrix)
 edistm - generates a distance matrix from a set of coordinates (this will be the euclidean distance between each coordinate)
+
+mst - minimum spanning tree. Builds a network connecting nodes so that the overall tree has a minimum distance. 
+Useful for route inspection / optimising construction / travelling salesman type problems.
+
+nw - network. Formats the result of mst and the input nodes into an easy readable network.

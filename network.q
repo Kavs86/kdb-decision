@@ -52,4 +52,4 @@ ri:{[n;m]                                            //route inspection for or l
  d2:raze y where x=min x:{sum x`dist}each y:(0N 2#x);                           //min sums of these arcs
  (`repeated_arcs,d2;`total_weight,sum d2[`dist],.5*d`dist)                      //format return
  }
-mainbranch:{x(-1+first m),m:where(-1_x)[;0] in (-1_x)[;1] }             //finds the main branch from the result of the route inspection
+

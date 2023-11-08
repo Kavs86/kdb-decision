@@ -39,7 +39,7 @@ connectn:{[n;m]                                                             //no
  m:(bridge/)cm[n;d;`inf];
  m}
 
-ri:{[n;m]                                            //route inspection for or less odd nodes. Args:nodes and unconnected matrix
+ri:{[n;m]                                            //route inspection for four or less odd nodes. Args:nodes and unconnected matrix
  d:([]src:raze count[n]#/:n;dst:raze flip count[n]#/:n;dist:raze m); 
  d:delete from d where dist=0;
  d:delete from d where dist=0w;

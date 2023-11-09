@@ -1,11 +1,11 @@
 Dynamic Programming - the state at any point depends on the state previously in the program.
   
-The question is how many ways can a certain target be made using the coins in circulation (1p 2p 5p 10p 20p 50p £1 £2)?
+The question is how many ways can a certain target value be made using the coins in circulation (1p 2p 5p 10p 20p 50p £1 £2)?
 
 The basic solution to the problem comes from the idea that the number of ways to make 
-  say 13p from coins of <= 10p will be the same as 
-  (the number of ways to make 13p from coins of <= 5p) + 
-  (the number of ways to make (13p - 10p = 3p) from coins of <= 10p)
+  say 13p from coins of value <= 10p will be the same as 
+  (the number of ways to make 13p from coins of value <= 5p) + 
+  (the number of ways to make (13p - 10p = 3p) from coins of value <= 10p)
   
 Hence the program will be dynamic. If we think of the denominations in terms of columns, the previous column (<= 5p)
 and the earlier state of the current column (<= 10p) will be used to generate more data on the current column.

@@ -1,5 +1,6 @@
 Q) The full graph network between stations is given (distances in km). 
 Find a minimum spanning tree for this network and find the minimum cost of linking the stations by cable.
+Cables cost £7500/km
 a-b-5.3 a-g-2.2 a-h-1.9
 b-c-2.5 b-d-3.8 b-f-3.6
 c-d-3.1 c-h-5.2
@@ -9,5 +10,17 @@ f-g-9.0
 g-h-2.7
 
 A) 
-/////m:genm(5.3 0w 0w 0w 2.2 1.9 2.5 3.8 0w 3.6 0w 0w 3.1 0w 0w 0w 5.2 4.0 0w 0w 0w 2.9 0w 0w 9.0 0w 2.7)
+m:genm1(5.3 0w 0w 0w 0w 2.2 1.9;2.5 3.8 0w 3.6 0w 0w;3.1 0w 0w 0w 5.2;4.0 0w 0w 0w;2.9 0w 0w;9.0 0w;2.7)
 network[`a`b`c`d`e`f`g`h]m
+
+Output should be the minimum spanning tree and total distance of this tree:
+(`a;`h;1.9)(`a;`g;2.2)(`h;`c;5.2)(`c;`b;2.5)(`c;`d;3.1)(`b;`f;3.6)(`f;`e;2.9)
+21.4
+
+Cost:21.4*7500 = £160500
+Result of network can be passed to other programming language for graphing. 
+
+
+
+
+

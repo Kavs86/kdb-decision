@@ -22,7 +22,7 @@ Output should be the minimum spanning tree and total distance of this tree:
 Cost:21.4*7500 = £160500
 Result of network can be passed to other programming language for graphing. 
 
-If distances was a comma and new line separated text file we could have:
+If distances were given as a comma and new line separated text file we could have:
 network[`a`b`c`d`e`f`g`h] mfd <textfile>
 
 ----------------------------------------------------------------------------------------------------------------------

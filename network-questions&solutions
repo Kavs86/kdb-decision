@@ -1,4 +1,5 @@
-Q) The full graph network between stations is given (distances in km). 
+-----------------------------------------------------------------------------------------------------------------
+Q) The full graph network between stations is given (distances in km). The arcs are bi-directional.
 Find a minimum spanning tree for this network and find the minimum cost of linking the stations by cable.
 Cables cost £7500/km
 
@@ -24,5 +25,24 @@ Result of network can be passed to other programming language for graphing.
 If distances was a comma and new line separated text file we could have:
 network[`a`b`c`d`e`f`g`h] mfd <textfile>
 
+----------------------------------------------------------------------------------------------------------------------
+Q)You need to visit every node on a network, starting and finishing at the same place.
+Your objective is to visit every node, travelling on every road, in the minimal distance.
+Find the roads (arcs) which need to be traversed twice and find the minimal distance (weight).
+The arcs are bi-directional.
 
+a-b-12 a-g-19 a-h-21
+b-c-17 b-d-35 b-g-22 
+c-d-19 c-e-15 c-g-12
+d-e-21 d-f-29
+e-f-20 e-g-7 e-h-30
+f-h-14
+g-h-8
 
+A)
+txt: "a-b-12,a-g-19,a-h-21\nb-c-17,b-d-35,b-g-22\nc-d-19,c-e-15,c-g-12\nd-e-21,d-f-29\ne-f-20,e-g-7,e-h-30\nf-h-14\ng-h-8"
+ri[`a`b`c`d`e`f`g`h] mfd txt
+
+Output should be the roads which must be traversed twice and the total minimal distance which must be covered:
+(`repeated_arcs;`src`dst`dist!(`a;`g;19f);`src`dst`dist!(`e;`f;20f))
+(`total_weight;340f) 

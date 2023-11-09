@@ -1,3 +1,5 @@
+//utility functions--------------------------------------------------------------------------------------------------
+
 genm1:{x:(0,'x),0;
  x+flip x:((-1+reverse count each x)#\:0),'x         //arg:semi-colon-separated upper right of matrix
  }
@@ -6,7 +8,12 @@ genm:{x+flip x:((1+til n+1)#\:0),'
  (sums 0,1+reverse til n:floor sqrt 2*count x)cut x  //arg:upper right of matrix
  }
 
-tfd:{flip `src`dst`dist!flip{(`$x 0),(`$x 1),"F"$2_ x}each "-" vs/: raze ","vs/: "\n" vs x} //tab from dist csv
+tfd:{t:flip `src`dst`dist!flip{(`$x 0),(`$x 1),"F"$2_ x}each "-" vs/: raze ","vs/: "\n" vs x;
+ t:t,select src:dst,dst:src,dist:dist from t}         //tab from dist csv
+
+mfd:{d:tfd x;n:distinct d`src;m:cm[n;d;`inf]}         //matrix from dist csv
+
+//main functions-----------------------------------------------------------------------------------------------------
 
 edistm:{{{sqrt x wsum x}each x -\: y}[x]each x}      //args:coords. Finds euclidean distance between each coordinate, hence returns a square matrix.
 

@@ -19,7 +19,7 @@ perms:{[n]
  c:2 5 10 20 50 100 200;
  a:(n+1)#1;
  b:2#a;
- last first(((til count c)!c) bin n) {j . x}/ j[a;b;c]
+ last first(((til count c)!c) bin n) {f . x}/ f[a;b;c]
  }
 
 // minpt,maxpt - finds the min sum/max sum path through a triangle 

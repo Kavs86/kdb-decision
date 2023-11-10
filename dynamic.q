@@ -1,3 +1,9 @@
+//utility functions
+
+//gentri generates a triangle from a vector of numbers
+gentri:{(sums til floor sqrt 2*count x)_ x}           
+
+----------------------------------------------------------------------------------------------------------------
 //f - Dynamic function to generate a list for any denomination.
 //Args are previous list, the beginning of this list (known), and coin denominations (2 5 10 ...)
 

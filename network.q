@@ -8,6 +8,8 @@ genm:{x+flip x:((1+til n+1)#\:0),'
  (sums 0,1+reverse til n:floor sqrt 2*count x)cut x  //arg:upper right of matrix
  }
 
+//generate distance table with columns src,dst,dist
+//Argument is csv of form a-b-num,a-c-num\nb-c-num\n etc
 tfd:{t:flip `src`dst`dist!flip{(`$x 0),(`$x 1),"F"$2_ x}each "-" vs/: raze ","vs/: "\n" vs x;
  t:t,select src:dst,dst:src,dist:dist from t}         //tab from dist csv
 

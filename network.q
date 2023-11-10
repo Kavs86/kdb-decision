@@ -19,13 +19,29 @@ tfd:{t:flip `src`dst`dist!flip{(`$x 0),(`$x 1),"F"$2_ x}each "-" vs/: raze ","vs
 
 //generate distance matrix
 //Argument is csv of form a-b-num,a-c-num\nb-c-num\n etc
-mfd:{d:tfd x;n:distinct d`src;m:cm[n;d;`inf]}         //matrix from dist csv
-
+mfd:{d:tfd x;
+ n:distinct d`src;
+ m:cm[n;d;`inf]
+ m}         //matrix from dist csv
 
 
 //main functions-----------------------------------------------------------------------------------------------------
 
 edistm:{{{sqrt x wsum x}each x -\: y}[x]each x}      //args:coords. Finds euclidean distance between each coordinate, hence returns a square matrix.
+
+//generate distance matrix from args:nodes;distance table;`zero or `inf if no direct path
+//this function and bridge were taken from kx`s article on linear programming
+cm:{[n;d;nopath]                                       
+ nn:count n;                                             
+ res:(2#nn)#(0 0Wf)`zero`inf?nopath;
+ ip:flip n?/:d`src`dst;
+ res:./[res;ip;:;`float$d`dist];
+ ./[res;til[nn],'til[nn];:;0f]
+ }
+
+//minimum sum inner product. Minimises distances between nodes
+bridge:{x & x('[min;+])\: x}                         
+
 
 mst:{[m;x;y;v]                                       //arg:distance matrix
  m:@[m;last x;:;(c:count m)#0Wf];
@@ -41,15 +57,11 @@ weight:{raze(x;sum x[;2])}
 
 nw:{[n;m]weight arc[n] mst m}
 
-cm:{[n;d;nopath]                                      //generate distance matrix from args:nodes;distance table;`zero or `inf if no direct path 
- nn:count n;                                          //this function and bridge were taken from kx`s article on linear programming   
- res:(2#nn)#(0 0Wf)`zero`inf?nopath;
- ip:flip n?/:d`src`dst;
- res:./[res;ip;:;`float$d`dist];
- ./[res;til[nn],'til[nn];:;0f]
+//network from distances csv
+nwfd:{d:tfd x;
+ n:distinct d`src;
+ nw[n]cm[n;d;`inf]
  }
-
-bridge:{x & x('[min;+])\: x}                          //minimum sum inner product. Essentially Dijkstra's algorithm. Minimises distances between nodes
 
 connectn:{[n;m]                                                             //nodes and original unconnected matrix
  d:([]src:raze count[n]#/:n;dst:raze flip count[n]#/:n;dist:raze m);        //connects unconnected nodes and minimizes distances

@@ -3,7 +3,7 @@
 //Used within em.fxxyh
 
 xxyh:{[x0;xl;y0;h](enlist[y0],x0 + h*til "i"$(xl-x0)%h;h)}
--------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
 //Euler's method used to estimate the value of the particular solution of a first order 
 //differential equation (f) at a certain point (x1) given the initial conditions (x0,y0) and step length (h)
 //Intermediate values also given. If you want only the last value use "over" instead of "scan"
@@ -12,7 +12,7 @@ xxyh:{[x0;xl;y0;h](enlist[y0],x0 + h*til "i"$(xl-x0)%h;h)}
 em.fxxyh:{[f;x0;x1;y0;h]
  {[f;x]f[x 1]scan x 0}[f]xxyh[x0;x1;y0;h]
  }
--------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
 //subject differential equations are defined as d
 //augmented to include the fact they will have to return the next y-value
 

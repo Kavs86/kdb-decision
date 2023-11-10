@@ -22,7 +22,7 @@ f1:{[h;y;x]
  y}
 
 f2:{[h;y;x]
- d:(y+x*x)%(neg[x]+y*y);
+ d:(x*x)+y*y;
  y:y+h*d;
  y}
 

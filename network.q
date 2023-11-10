@@ -38,6 +38,12 @@ mfd:{d:tfd x;
  m:cm[n;d;`inf];
  m}       
 
+//generate nodes and matrix from csv of from a-b-num,a-c-num etc
+nmfd:{d:tfd x;
+ n:distinct d`src;
+ m:cm[n;d;`inf];
+ (n;m)}  
+
 //main functions-----------------------------------------------------------------------------------------------------
 
 edistm:{{{sqrt x wsum x}each x -\: y}[x]each x}      //args:coords. Finds euclidean distance between each coordinate, hence returns a square matrix.
@@ -59,10 +65,7 @@ weight:{raze(x;sum x[;2])}
 nw:{[n;m]weight arc[n] mst m}
 
 //network from distances csv
-nwfd:{d:tfd x;
- n:distinct d`src;
- nw[n]cm[n;d;`inf]
- }
+nwfd:{nw . nmfd x}
 
 connectn:{[n;m]                                                             //nodes and original unconnected matrix
  d:([]src:raze count[n]#/:n;dst:raze flip count[n]#/:n;dist:raze m);        //connects unconnected nodes and minimizes distances
@@ -84,6 +87,9 @@ ri:{[n;m]                                            //route inspection for four
  d2:raze y where x=min x:{sum x`dist}each y:(0N 2#x);                           //min sums of these arcs
  (`repeated_arcs,d2;`total_weight,sum d2[`dist],.5*d`dist)                      //format return
  }
+
+//route inspection from distances csv of form a-b-num,a-c-num etc
+rifd:{ri . nmfd x}
 
 
 

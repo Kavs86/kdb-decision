@@ -1,5 +1,5 @@
 Q)The differential equation dy/dx = ln (x+y^2) passes through the point (1,3) (which is x0,y0). 
-Using a step length of 0.2 (h) to estimate the value of the particular solution
+Use Euler's method with a step length of 0.2 (h) to estimate the value of the particular solution
 to the differential equation at x=2 (x1).
 
 A)

@@ -1,4 +1,4 @@
-//Dynamic function to generate a list for any denomination.
+//f - Dynamic function to generate a list for any denomination.
 //Args are previous list, the beginning of this list (known), and coin denominations (2 5 10 ...)
 
 f:{$[(count x)>count y;
@@ -6,7 +6,7 @@ f:{$[(count x)>count y;
  (y;first[1_z,2000]#y;1_z)]
  }
 
-//Finds the number of permutations for any given value (in pence)
+//perms - Finds the number of permutations for any given value (in pence)
 //recurses on f as many times as needed
 
 perms:{[n]
@@ -15,3 +15,8 @@ perms:{[n]
  b:2#a;
  last first(((til count c)!c) bin n) {j . x}/ j[a;b;c]
  }
+
+// minpt,maxpt - finds the min sum/max sum path through a triangle 
+
+minpt:{{(1_ 2 mmin x)+y}/[reverse x]}
+maxpt:{{(1_ 2 mmax x)+y}/[reverse x]}

@@ -9,7 +9,7 @@ xxyh:{[x0;xl;y0;h](enlist[y0],x0 + h*til "i"$(xl-x0)%h;h)}
 //Intermediate values also given. If you want only the last value use "over" instead of "scan"
 //Format is em.fxxyh[func] . x0 x1 y0 h
 
-em.fxxyh:{[f;x0;x1;y0;h]
+emfxxyh:{[f;x0;x1;y0;h]
  {[f;x]f[x 1]scan x 0}[f]xxyh[x0;x1;y0;h]
  }
 //-------------------------------------------------------------------------------------------------------------------

@@ -13,6 +13,8 @@ genm:{x+flip x:((1+til n+1)#\:0),'
 tfd:{t:flip `src`dst`dist!flip{(`$x 0),(`$x 1),"F"$2_ x}each "-" vs/: raze ","vs/: "\n" vs x;
  t:t,select src:dst,dst:src,dist:dist from t}         //tab from dist csv
 
+//generate distance matrix
+//Argument is csv of form a-b-num,a-c-num\nb-c-num\n etc
 mfd:{d:tfd x;n:distinct d`src;m:cm[n;d;`inf]}         //matrix from dist csv
 
 //main functions-----------------------------------------------------------------------------------------------------

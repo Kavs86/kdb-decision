@@ -37,7 +37,7 @@ g-h-8
 
 A)
 txt: "a-b-12,a-g-19,a-h-21\nb-c-17,b-d-35,b-g-22\nc-d-19,c-e-15,c-g-12\nd-e-21,d-f-29\ne-f-20,e-g-7,e-h-30\nf-h-14\ng-h-8"
-ri[`a`b`c`d`e`f`g`h] mfd txt
+rifd txt
 
 Output should be the roads which must be traversed twice and the total minimal distance which must be covered:
 (`repeated_arcs;`src`dst`dist!(`a;`g;19f);`src`dst`dist!(`e;`f;20f))

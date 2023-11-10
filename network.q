@@ -1,9 +1,13 @@
 //utility functions--------------------------------------------------------------------------------------------------
 
+//generate distance matrix from upper-right of matrix with lines separated by semi-colon
+//No path = 0w 
 genm1:{x:(0,'x),0;
  x+flip x:((-1+reverse count each x)#\:0),'x         //arg:semi-colon-separated upper right of matrix
  }
 
+//generate distance matrix from upper-right of matrix as a single vector of numbers.
+//No path = 0w
 genm:{x+flip x:((1+til n+1)#\:0),'
  (sums 0,1+reverse til n:floor sqrt 2*count x)cut x  //arg:upper right of matrix
  }
@@ -16,6 +20,8 @@ tfd:{t:flip `src`dst`dist!flip{(`$x 0),(`$x 1),"F"$2_ x}each "-" vs/: raze ","vs
 //generate distance matrix
 //Argument is csv of form a-b-num,a-c-num\nb-c-num\n etc
 mfd:{d:tfd x;n:distinct d`src;m:cm[n;d;`inf]}         //matrix from dist csv
+
+
 
 //main functions-----------------------------------------------------------------------------------------------------
 

@@ -1,4 +1,19 @@
-//utility functions--------------------------------------------------------------------------------------------------
+//kx functions--------------------------------------------------------------------------------------------------
+//cm and bridge were taken from kx`s article on linear programming
+
+//generate distance matrix from args:nodes;distance table;`zero or `inf if no direct path
+cm:{[n;d;nopath]                                       
+ nn:count n;                                             
+ res:(2#nn)#(0 0Wf)`zero`inf?nopath;
+ ip:flip n?/:d`src`dst;
+ res:./[res;ip;:;`float$d`dist];
+ ./[res;til[nn],'til[nn];:;0f]
+ }
+
+//minimum sum inner product. Minimises distances between nodes
+bridge:{x & x('[min;+])\: x}  
+
+//utility functions--------------------------------------------------------------------------------------------                       
 
 //generate distance matrix from upper-right of matrix with lines separated by semi-colon
 //No path = 0w 
@@ -17,30 +32,16 @@ genm:{x+flip x:((1+til n+1)#\:0),'
 tfd:{t:flip `src`dst`dist!flip{(`$x 0),(`$x 1),"F"$2_ x}each "-" vs/: raze ","vs/: "\n" vs x;
  t:t,select src:dst,dst:src,dist:dist from t}         //tab from dist csv
 
-//generate distance matrix
-//Argument is csv of form a-b-num,a-c-num\nb-c-num\n etc
+//generate distance matrix from csv of a-b-num,a-c-num\nb-c-num\n etc
 mfd:{d:tfd x;
  n:distinct d`src;
- m:cm[n;d;`inf]
- m}         //matrix from dist csv
-
+ m:cm[n;d;`inf];
+ m}       
 
 //main functions-----------------------------------------------------------------------------------------------------
 
 edistm:{{{sqrt x wsum x}each x -\: y}[x]each x}      //args:coords. Finds euclidean distance between each coordinate, hence returns a square matrix.
 
-//generate distance matrix from args:nodes;distance table;`zero or `inf if no direct path
-//this function and bridge were taken from kx`s article on linear programming
-cm:{[n;d;nopath]                                       
- nn:count n;                                             
- res:(2#nn)#(0 0Wf)`zero`inf?nopath;
- ip:flip n?/:d`src`dst;
- res:./[res;ip;:;`float$d`dist];
- ./[res;til[nn],'til[nn];:;0f]
- }
-
-//minimum sum inner product. Minimises distances between nodes
-bridge:{x & x('[min;+])\: x}                         
 
 
 mst:{[m;x;y;v]                                       //arg:distance matrix
@@ -83,4 +84,6 @@ ri:{[n;m]                                            //route inspection for four
  d2:raze y where x=min x:{sum x`dist}each y:(0N 2#x);                           //min sums of these arcs
  (`repeated_arcs,d2;`total_weight,sum d2[`dist],.5*d`dist)                      //format return
  }
+
+
 

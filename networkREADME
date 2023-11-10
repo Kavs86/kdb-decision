@@ -3,6 +3,10 @@ inspect routes and networks and help with finding optimal solutions to network p
 
 genm - generates a distance matrix from a vector argument (the razed top right of the desired matrix)
 genm1 - generates a distance matrix from a semi-colon separated single argument (the top right of the desired matrix)
+tfd - generates a table with columns src,dst,dist from a text file with format a-b-num,a-c,num/nb-d-num, etc
+mfd - generates a distance matric from a text file with format a-b-num,a-c,num/nb-d-num, etc
+
+
 edistm - generates a distance matrix from a set of coordinates (this will be the euclidean distance between each coordinate)
 
 mst - minimum spanning tree. Builds a network connecting nodes so that the overall tree has a minimum distance. 

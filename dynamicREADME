@@ -1,6 +1,6 @@
 Dynamic Programming - the state at any point depends on the state previously in the program.
   
-The question is how many ways can a certain target value be made using the coins in circulation (1p 2p 5p 10p 20p 50p £1 £2)?
+Q) How many ways can a certain target value be made using the coins in circulation (1p 2p 5p 10p 20p 50p £1 £2)?
 
 The basic solution to the problem comes from the idea that the number of ways to make 
   say 13p from coins of value <= 10p will be the same as 
@@ -11,5 +11,25 @@ Hence the program will be dynamic. If we think of the denominations in terms of 
 and the earlier state of the current column (<= 10p) will be used to generate more data on the current column.
 Mathematically something like f10(n) = f5(n) + f10(n-10).
 
-The argument of the perms function is the target value in pence. 
+A) The argument of the perms function is the target value in pence. 
 Eg. perms(100)=4563. There are 4563 ways to make £1 using 1p 2p 5p 10p 20p 50p 100p 200p
+
+-----------------------------------------------------------------------------------------------------------------------
+Q) Find the weight of the minimum and maximum sum paths through the triangle (top to bottom):
+                         19
+                       34  18
+                     23  26  45
+                   52  44  61  12
+                 33  17  52  29  72
+                52 49  56  38  40  12  
+
+A) 
+The program will be dynamic as the moving mins/maxs of the bottom row will need to be evaluated first 
+then added to the previous row then this will be repeated until the top row leaving us with the minpt/maxpt.
+
+t:gentri[19 34 18 23 26 45 52 44 61 12 33 17 52 29 72 52 49 56 38 40 12]
+minpt t
+maxpt t
+
+min=161 , max=251
+

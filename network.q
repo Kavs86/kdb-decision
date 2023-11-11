@@ -46,10 +46,11 @@ nmfd:{d:tfd x;
 
 //main functions-----------------------------------------------------------------------------------------------------
 
-edistm:{{{sqrt x wsum x}each x -\: y}[x]each x}      //args:coords. Finds euclidean distance between each coordinate, hence returns a square matrix.
+//Euclidean distance between each coordinate. Returns a square matrix.
+edistm:{{{sqrt x wsum x}each x -\: y}[x]each x}      //args:coords 
 
 
-
+//minimum spanning tree
 mst:{[m;x;y;v]                                       //arg:distance matrix
  m:@[m;last x;:;(c:count m)#0Wf];
  x:x,(i:first where r=w:min r:raze{[m;x]m[;x]}[m]each x)mod c;  //dst
@@ -67,14 +68,20 @@ nw:{[n;m]weight arc[n] mst m}
 //network from distances csv
 nwfd:{nw . nmfd x}
 
+//connect unconnected nodes and minimize distances
 connectn:{[n;m]                                                             //nodes and original unconnected matrix
- d:([]src:raze count[n]#/:n;dst:raze flip count[n]#/:n;dist:raze m);        //connects unconnected nodes and minimizes distances
+ d:([]src:raze count[n]#/:n;dst:raze flip count[n]#/:n;dist:raze m);        
  d:delete from d where dist=0;
  d:delete from d where dist=0w;
  m:(bridge/)cm[n;d;`inf];
  m}
 
-ri:{[n;m]                                            //route inspection for four or less odd nodes. Args:nodes and unconnected matrix
+//connect nodes from distances csv
+//connect unconnected nodes and minimize distances from csv of form a-b-num,a-c-num etc
+connectnfd:{connectn . nmfd x}
+
+//route inspection for four or less odd nodes
+ri:{[n;m]                                                                  // Args:nodes and unconnected matrix
  d:([]src:raze count[n]#/:n;dst:raze flip count[n]#/:n;dist:raze m); 
  d:delete from d where dist=0;
  d:delete from d where dist=0w;

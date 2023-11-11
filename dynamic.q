@@ -44,6 +44,15 @@ perms:{[n]
  last first(((til count c)!c) bin n) {f . x}/ f[a;b;c]
  }
 
+//permscn takes coin denominations as arg1
+permscn:{[c;n]
+ c:1_c
+ a:(n+1)#1;
+ b:2#a;
+ last first(((til count c)!c) bin n) {f . x}/ f[a;b;c]
+ }
+//-------------------------------------------------------------------------------------------------------------------
+
 // minpt,maxpt - finds the min sum/max sum path through a triangle 
 
 minpt:{{(1_ 2 mmin x)+y}/[reverse x]}

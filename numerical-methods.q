@@ -1,6 +1,6 @@
 //utility function
 //converts initial x (x0), final x (x1), initial y (y0), step length (h) into an argument list. 
-//Used within em.fxxyh
+//Used within emfxxyh
 
 xxyh:{[x0;xl;y0;h](enlist[y0],x0 + h*til "i"$(xl-x0)%h;h)}
 //-------------------------------------------------------------------------------------------------------------------

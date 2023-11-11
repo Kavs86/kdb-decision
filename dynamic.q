@@ -46,7 +46,7 @@ perms:{[n]
 
 //permscn takes coin denominations as arg1
 permscn:{[c;n]
- c:1_c
+ c:1_c;
  a:(n+1)#1;
  b:2#a;
  last first(((til count c)!c) bin n) {f . x}/ f[a;b;c]

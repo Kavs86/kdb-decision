@@ -1,3 +1,4 @@
+\d .gametheorysk
 //solves simultaneous eqns within .001
 fsolve:{[x;f;m]
  .001*avg where f[m;x] within -.01 .01}[.001*til 1000]

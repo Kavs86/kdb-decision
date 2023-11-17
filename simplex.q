@@ -1,4 +1,4 @@
-\d .simplex
+\d .simplexsk
 
 //simplex algorithm takes a matrix (initial tableau) and the basic variable indices (as a vector of integers) as arguments.
 //returns tableau after one pass and updated basic variable indices.

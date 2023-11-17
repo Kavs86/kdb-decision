@@ -1,3 +1,5 @@
+\d .numericalsk
+
 //utility function
 //converts initial x (x0), final x (x1), initial y (y0), step length (h) into an argument list. 
 //Used within emfxxyh

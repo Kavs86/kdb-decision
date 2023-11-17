@@ -4,6 +4,8 @@
    Use slack variables r and s which can have index 3 and 4 respectively.
    This can be reformed as: 2x+2y+r=5,5x+3y+4z+s=15,P-10x-12y-8x=0 hence the following matrix: 
 
-   m:0N 6# 2 2 0 1 0 5 5 3 4 0 1 15 -10 -12 -8 0 0 0;
+   \d .simplexsk
+
+   m:(2 2 0 1 0 5;5 3 4 0 1 15;-10 -12 -8 0 0 0);
    summarysim[`x`y`z`r`s] optsim[m;3 4]
    This should return the dictionary `optimal_solution`y`z!(45 2.5 1.875)

@@ -1,3 +1,4 @@
+/d .dynamicsk
 //utility functions--------------------------------------------------------------------------------------------------
 
 //generate distance matrix from upper-right of matrix with lines separated by semi-colon

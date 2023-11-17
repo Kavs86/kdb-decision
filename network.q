@@ -1,4 +1,5 @@
-/d .networksk
+\d .networksk
+
 //kx functions--------------------------------------------------------------------------------------------------
 //cm and bridge were taken from kx`s article on linear programming
 

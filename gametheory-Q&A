@@ -9,6 +9,8 @@ A)The answer (for player A) involves solving a pair of simultaneous equations of
 which will give us the optimal probability with with A should play row 1.
 For B we would do the same with the negative transpose of the matrix.
 
+/d .gametheorysk
+
 m:(4 -2;-5 3)
 optmixA1 m --->0.5715 (A should play row 1 with a probability of 0.5715)
 valA --------->0.142 (the value of the game to player A is 0.142)

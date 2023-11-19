@@ -21,3 +21,13 @@ valB:{[m]
  p:optmixB1 m;
  v:{[m;p]{((x[0;0])*y)+x[1;0]*1-y}[m;p]}[neg flip m;p];
  v}
+
+//probability and value of playing row/column 1 
+probval:{[m]
+ m:flip m;
+ f:{p:.0001*avg where((((y 0)*x)+(y 1)*1-x)-(((z 0)*x)+(z 1)*1-x))within -.001 .001;
+ v:((y 0)*p)+(y 1)*1-p;(p;v)}[.0001*til 10000]'[m];
+ r:f[1 rotate m];
+ r:r,f[2 rotate m];
+ i:last where -1=signum{(x 1)%x 0}each deltas r:distinct asc .001*`int$1000*r;
+ `prob_play_1`value!r i}

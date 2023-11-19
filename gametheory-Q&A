@@ -17,9 +17,9 @@ payoff matrix                  B plays 1   B plays 2
                      A plays 1    4           -2
                      A plays 2   -5            3
 optmixA1 m --->0.571 (A should play row 1 with a probability of 0.571)
-valA --------->0.142 (the value of the game to player A is 0.142)
+valA m--------->0.142 (the value of the game to player A is 0.142)
 optmixB1 m --->0.357 (A should play column 1 with a probability of 0.357)
-valB --------->-0.142 (the value of the game to player B is -0.142)
+valB m--------->-0.142 (the value of the game to player B is -0.142)
 
 
 A more complicated problem involves either player A or player B having 3 or 4 options:
@@ -30,5 +30,5 @@ payoff matrix                  B plays 1   B plays 2   B plays 3   B plays 4
 Find the optimal mixed strategy and value of the game to player A.
 
 A)m:(-1 0 -2 2;1 -2 3 -3)
-probval1 m ----->0.714  -0.571 (A should play row 1 with a probability of 0.714 and 
+probval m ----->0.714  -0.571 (A should play row 1 with a probability of 0.714 and 
 the value of the game to player A is -0.571)

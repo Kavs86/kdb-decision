@@ -1,4 +1,11 @@
 //utility functions
+
+//create table from input text of form "source-dest-capacity-currentFlow"
+tabfromtxt:{
+ {src:`$x[;0];dst:`$x[;1];for:("I"$x[;2])-"I"$x[;3];back:"I"$x[;3];
+ ([]src:src;dst:dst;for:for;back:back)
+ }"-"vs/: ","vs x}
+
 //find all possible routes through a directed network
 routes:{[s;sd]                                                        //args:source,sources and destinations 
  r:raze{$[(l:last x) in y[;0];

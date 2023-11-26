@@ -3,7 +3,7 @@
 //create table from input text of form "source-dest-capacity-currentFlow"
 tabfromtxt:{
  {src:`$x[;0];dst:`$x[;1];for:("I"$x[;2])-"I"$x[;3];back:"I"$x[;3];
- ([]src:src;dst:dst;for:for;back:back)
+ ([src:src;dst:dst]for:for;back:back)
  }"-"vs/: ","vs x}
 
 //find all possible routes through a directed network
@@ -26,7 +26,6 @@ nfkt:{flip value flip key x}
 
 //initial augmented flow routes table
 augflowconnected:{[s;t]
- t:2!t;
  t:updroutes[t]routes[`s] nfkt t;
  t}     
 

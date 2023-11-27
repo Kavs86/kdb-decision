@@ -6,7 +6,7 @@ Find the optimal mixed strategy for each player and state the value of the game 
 
 A)The answer (for player A) involves solving a pair of simultaneous equations of the form
  4p - 5(1 - p) = -2p + 3(1 - p)
-which will give us the optimal probability with with A should play row 1.
+which will give us the optimal probability with which A should play row 1.
 For B we would do the same with the negative transpose of the matrix.
 
 \d .gametheorysk

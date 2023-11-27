@@ -1,4 +1,13 @@
+Q)
+Given a capacitated directed network with an initial flow pattern, find the maximum flow pattern through the network
+from s to t. 
+
 A)
+//The aug- functions find routes from s to t and increase the flow in each arc by the lowest available spare capacity
+//of an arc along that route.
+
+//text input of the form "source_node-destination_node-capacity-current_flow"
+
 txt:"s-a-31-17,s-c-17-13,s-b-15-12,
      a-d-13-8,a-c-13-9,
      b-c-10-7,b-e-5-5,
@@ -7,7 +16,7 @@ txt:"s-a-31-17,s-c-17-13,s-b-15-12,
      e-f-11-7,e-t-8-6,
      f-t-37-24"
 
-t:tabfromtxt
+t:tabfromtxt txt
 t:augflowconnected[`s;t]
 
 //At this point inspect the table. We want a route from s to t where "for" is not equal to zero.
@@ -15,7 +24,7 @@ t:augflowconnected[`s;t]
 //Hence reversing c-d to become d-c would allow for a full path. This is done within the augflow function with `c and `d as
 //additional arguments.
 
-t:augflowswitch[`s;;`c;`d]t
+t:augflowswitch[`s;t;`c;`d]
 
 //We can see from this there will be a route from s to t where "for" is non-zero, namely s-a-d-c-e-t so we use the augflowconnected
 //function once more.
@@ -23,9 +32,9 @@ t:augflowswitch[`s;;`c;`d]t
 t:augflowconnected[`s;t]
 
 //The furthest path of non-zero "for"s is now s-a-d-c but c-e and c-f are fully saturated and paths which have c as the destination 
-//would be towards the source s. We have now reached the solution for maximal flow. Use maxflow to format the results:
+//would be towards the source s. We have now reached the solution for maximal flow (using 1 switch). Use maxflow to format the results:
 
-t:maxflow t
+t:maxflow[t;1]
 
 //A table with the source node, destination node and the flow units through that node.
 //Note the maximal flow through the network will be the sum of the flow from the source node s.

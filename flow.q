@@ -38,4 +38,9 @@ augflowswitch:{[s;t;n1;n2]
  t:updroutes[t] r where c=max c:count each r:routes[`s]nfkt t1}
 
 //format final table
-maxflow:{select src,dst,flow:back from x}
+//args:tab,count of how many switches.
+maxflow:{t:neg[y]#x;
+ x:neg[y]_x;
+ t:2!select src:dst,dst:src,for:back,back:for from t;
+ x:x upsert t;
+ select src,dst,flow:back from x}

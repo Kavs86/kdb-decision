@@ -1,3 +1,5 @@
+\d .flowsk
+
 //utility functions
 
 //create table from input text of form "source-dest-capacity-currentFlow"
